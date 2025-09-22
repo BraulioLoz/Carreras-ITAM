@@ -1,0 +1,208 @@
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+   NAVBAR STYLES - Barra de navegación principal
+   -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+   /*prof css está bien dificil, los comentarios son para saber qué hace cada cosa,*/
+
+   /* Me gustaría tambien si puede explicar por qué se usa px y rem para los tamaños y todo. */
+   /* porque el itam usa px y luego usa rem para texo y así y no entiendo por qué. 
+/* Contenedor principal del navbar */
+.navbar {
+  /* Gradiente de fondo: comienza verde oscuro (17%) y se desvanece a transparente (100%) */
+  background: linear-gradient(180deg, rgb(33 49 48) 17%, #21313078 100%);
+}
+
+/* Enlaces del navbar - Estilo base para todos los links de navegación */
+.navbar-dark .navbar-nav .nav-link {
+  color: white !important;              /* Texto blanco, !important sobrescribe estilos de Bootstrap */
+  font-weight: 500;                     /* Peso medio de fuente para mejor legibilidad */
+  padding: 0.5rem 1rem !important;      /* Espaciado interno: 8px arriba/abajo, 16px izq/der */
+  margin: 0 0.25rem;                    /* Margen entre enlaces: 4px a los lados */
+  border-radius: 4px;                   /* Esquinas redondeadas sutiles */
+  transition: all 0.3s ease;           /* Animación suave de 0.3s para todos los cambios */
+  position: relative;                   /* Necesario para posicionar el pseudo-elemento ::after */
+}
+
+
+/* Efecto de subrayado al pasar el mouse (hover) sobre los enlaces */
+.navbar-dark .navbar-nav .nav-link:hover::after {
+  content: '';                          /* Crea un elemento vacío invisible */
+  position: absolute;                   /* Posicionamiento absoluto respecto al enlace padre */
+  bottom: -2px;                         /* Se coloca 2px debajo del texto */
+  left: 50%;                           /* Inicia desde el centro horizontal */
+  transform: translateX(-50%);          /* Centra perfectamente la línea */
+  width: 108%;                         /* Ancho ligeramente mayor al texto (sobresale un poco) */
+  height: 3px;                         /* Grosor de la línea de subrayado */
+  background-color: white;             /* Color blanco para contrastar con el fondo oscuro */
+  border-radius: 1px;                  /* Esquinas ligeramente redondeadas */
+}
+
+
+/* Efecto de subrayado para la página activa (indica en qué sección estamos) */
+.navbar-dark .navbar-nav .nav-link.active::after {
+  content: '';                          /* Crea un elemento vacío invisible */
+  position: absolute;                   /* Posicionamiento absoluto respecto al enlace padre */
+  bottom: -2px;                         /* Se coloca 2px debajo del texto */
+  left: 50%;                           /* Inicia desde el centro horizontal */
+  transform: translateX(-50%);          /* Centra perfectamente la línea */
+  width: 108%;                         /* Ancho ligeramente mayor al texto */
+  height: 3px;                         /* Grosor de la línea indicadora */
+  background-color: white;             /* Color blanco para indicar página activa */
+  border-radius: 1px;                  /* Esquinas ligeramente redondeadas */
+}
+
+
+/* Menú desplegable (dropdown) del navbar */
+.navbar-dark .navbar-nav .dropdown-menu {
+  background-color: #DAEDE5 !important; /* Fondo verde claro que combina con el tema ITAM */
+  border: none;                          /* Elimina el borde por defecto de Bootstrap */
+  border-radius: 8px;                    /* Esquinas redondeadas para un look moderno */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidad */
+  padding: 0.5rem 0;                     /* Espaciado interno: 8px arriba/abajo */
+  opacity: 0;                            /* Inicialmente invisible */
+  visibility: hidden;                    /* Inicialmente oculto (no ocupa espacio) */
+  transform: translateY(-10px);          /* Desplazado 10px hacia arriba (efecto de entrada) */
+  /* Transición con delay: aparece después de 0.2s de hover */
+  transition: opacity 0.2s ease-in-out 0.2s, 
+              visibility 0s linear 0.4s, 
+              transform 0.2s ease-in-out 0.2s;
+}
+
+/* Estado visible del dropdown cuando se hace hover sobre el elemento padre */
+.navbar-dark .navbar-nav .dropdown:hover .dropdown-menu {
+  opacity: 1;                            /* Se vuelve completamente visible */
+  visibility: visible;                   /* Se vuelve visible en el DOM */
+  transform: translateY(0);              /* Regresa a su posición original */
+  /* Transición inmediata al mostrar, sin delay */
+  transition: opacity 0.2s ease-in-out 0.2s, 
+              visibility 0s linear 0s, 
+              transform 0.2s ease-in-out 0.2s;
+}
+
+
+/* Elementos individuales dentro del dropdown */
+.navbar-dark .navbar-nav .dropdown-item {
+  color: #333 !important;               /* Texto gris oscuro para buena legibilidad */
+  transition: all 0.3s ease;           /* Animación suave para cambios de estado */
+  padding: 0.5rem 1rem;                /* Espaciado interno para área táctil cómoda */
+}
+
+/* Efecto hover en elementos del dropdown */
+.navbar-dark .navbar-nav .dropdown-item:hover {
+  background-color: #f8f9fa !important; /* Fondo gris muy claro al pasar mouse */
+  color: #000 !important;               /* Texto negro para mayor contraste */
+}
+
+
+
+
+
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+   HERO SOCIAL ICONS - Iconos de redes sociales en el hero
+   -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+/* Área táctil cómoda y centrada para cada icono */
+.hero-social a{
+  display:inline-flex;                  /* Flexbox para centrar contenido perfectamente */
+  align-items:center;                   /* Centra verticalmente el icono */
+  justify-content:center;               /* Centra horizontalmente el icono */
+  width:44px; height:44px;              /* Tamaño cuadrado de 44px (objetivo táctil recomendado) */
+  border-radius:50%;                    /* Hace el contenedor circular */
+  transition:transform .15s ease, opacity .15s ease; /* Animación rápida y suave */
+}
+
+/* Tamaño de imagen y ajuste */
+.hero-social img{
+  display:block;                        /* Elimina espacios en blanco debajo de la imagen */
+  width:24px; height:24px;              /* Tamaño fijo de 24px para consistencia */
+  object-fit:contain;                   /* Mantiene proporciones sin recortar */
+}
+
+
+/* Efectos de interacción para iconos sociales */
+.hero-social a:hover{ 
+  transform:translateY(-1px);           /* Eleva ligeramente el icono (efecto de "levantar") */
+  opacity:.9;                           /* Reduce ligeramente la opacidad */
+}
+.hero-social a:focus-visible{
+  outline:2px solid #fff;               /* Borde blanco de 2px para accesibilidad */
+  outline-offset:2px;                   /* Separación de 2px del borde del elemento */
+}
+
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+   CARDS DE CARRERAS - Tarjetas que muestran cada carrera
+   -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+/* Contenedor principal de cada tarjeta */
+.card {
+    border: none;                         /* Elimina el borde por defecto de Bootstrap */
+    border-radius: 12px;                  /* Esquinas redondeadas de 12px para look moderno */
+    overflow: hidden;                     /* Oculta contenido que se salga (importante para border-radius) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave para hover */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil por defecto */
+    background: white;                    /* Fondo blanco sólido */
+    height: 100%;                         /* Ocupa toda la altura disponible del contenedor */
+}
+
+/* Efecto hover - se activa al pasar el mouse sobre la tarjeta */
+.card:hover {
+    transform: translateY(-8px);          /* Eleva la tarjeta 8px hacia arriba */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra más pronunciada y difuminada */
+}
+
+/* Imagen principal de cada tarjeta */
+.card-img-top {
+    height: 200px;                        /* Altura fija de 200px para uniformidad */
+    object-fit: cover;                    /* Recorta la imagen para llenar el espacio sin deformar */
+    width: 100%;                          /* Ocupa todo el ancho de la tarjeta */
+}
+
+/* Contenedor del texto dentro de la tarjeta */
+.card-body {
+    padding: 1.5rem;                      /* Espaciado interno de 24px en todos los lados */
+    text-align: center;                   /* Centra todo el texto */
+    position: relative;                   /* Permite posicionamiento absoluto de elementos hijos */
+    background: white;                    /* Fondo blanco (por si acaso) */
+}
+
+/* Título de la carrera (nombre de la carrera) */
+.card-title {
+    color: #004438;                       /* Verde oscuro corporativo del ITAM */
+    text-align: center;                   /* Centrado horizontal */
+    font-weight: 700;                     /* Peso bold para destacar */
+    margin-bottom: 1rem;                  /* Espaciado de 16px debajo del título */
+    font-size: 20px;                      /* Tamaño de fuente específico */
+    text-transform: none;                 /* Sin transformación de texto (mantiene mayúsculas/minúsculas originales) */
+    font-style: normal;                   /* Estilo normal (no cursiva) */
+    line-height: 28px;                    /* Altura de línea para mejor legibilidad */
+}
+
+/* Texto "Plan de Estudios" */
+.card-text {
+    color: #213130;                       /* Gris verdoso para texto secundario */
+    font-size: 17px;                      /* Tamaño ligeramente menor que el título */
+    text-transform: uppercase;            /* Convierte todo a mayúsculas */
+    letter-spacing: 0.5px;               /* Espaciado entre letras para efecto elegante */
+    font-weight: 500;                     /* Peso medio */
+    margin: 0;                            /* Sin márgenes externos */
+    display: flex;                        /* Flexbox para alinear icono y texto */
+    align-items: center;                  /* Centra verticalmente el contenido */
+    justify-content: center;              /* Centra horizontalmente el contenido */
+    gap: 0.5rem;                         /* Espacio de 8px entre icono y texto */
+}
+
+/* Icono que aparece antes del texto "Plan de Estudios" */
+.card-text::before {
+    content: "📄";                        /* Emoji de documento */
+    font-size: 1rem;                      /* Tamaño del emoji */
+}
+
+/* Enlaces dentro de las tarjetas */
+.card a {
+    text-decoration: none !important;     /* Elimina el subrayado de los enlaces */
+}
+
+/* Efecto hover en el título cuando se pasa mouse sobre el enlace */
+.card a:hover .card-title {
+    color: #77B944;                       /* Cambia a verde claro del ITAM al hacer hover */
+}
