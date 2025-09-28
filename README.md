@@ -49,9 +49,11 @@ Hice el puill request y lo resolví por lo que no tengo el primer URL al pull re
 
 ## Pull request 
 ### Primero
-Lo resolví :(
+Lo resolví 
+https://github.com/BraulioLoz/Carreras-ITAM/pull/1
 
 ### Segundo
 https://github.com/BraulioLoz/Carreras-ITAM/pull/2
 
-### TerceroVi
+### Tercero
+https://github.com/BraulioLoz/Carreras-ITAM/pull/3
