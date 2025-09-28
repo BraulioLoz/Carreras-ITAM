@@ -46,3 +46,12 @@ git push -f origin main
 
 Hice el puill request y lo resolví por lo que no tengo el primer URL al pull request pero hago uno segundo.
 
+
+## Pull request 
+### Primero
+Lo resolví :(
+
+### Segundo
+https://github.com/BraulioLoz/Carreras-ITAM/pull/2
+
+### TerceroVi
